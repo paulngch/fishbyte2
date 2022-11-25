@@ -9,9 +9,9 @@ export default function Calendar({ timeState, setTimeState, hourNow, tempHour,se
     arrOfHours.push(i);
   }
 
- useEffect(() => {
-   setInterval(() => setTimeState(new Date()), 30000);
- }, []);
+//  useEffect(() => {
+//    setInterval(() => setTimeState(new Date()), 30000);
+//  }, []);
 
   const centerScroll = (value) => {
     // document.getElementsByClassName(`.timeButtons`).style.fontSize= '20px';
@@ -58,7 +58,7 @@ export default function Calendar({ timeState, setTimeState, hourNow, tempHour,se
           </div>
           <MdChevronRight onClick={slideRight} size={40} />
         </div>
-        <div>
+        {/* <div>
           time now: <span className="text-2xl">
           {timeState.toLocaleString("en-SG", {
             hour: "numeric",
@@ -66,7 +66,7 @@ export default function Calendar({ timeState, setTimeState, hourNow, tempHour,se
             hour12: true,
           })}
           </span>
-        </div>
+        </div> */}
       </div>
     </>
   );

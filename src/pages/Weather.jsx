@@ -113,8 +113,8 @@ export default function Weather({
   // console.log("CONDITION", condition);
 
   return (
-    <div className="flex flex-col mx-auto p-6">
-      <div className="mx-auto my-2 p-2 text-2xl font-extralight flex items-center">
+    <div className="flex flex-col pl-8 ">
+      <div className="mx-auto text-2xl font-extralight flex items-center">
         <div className="flex">Condition:</div>
         <div className="text-4xl">{condition}</div>
       </div>

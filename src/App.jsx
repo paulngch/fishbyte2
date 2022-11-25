@@ -51,11 +51,10 @@ function App() {
   const [today, setToday] = useState(toDay);
   const [todate, setTodate] = useState(exactDateNow);
   const [tempHour, setTempHour] = useState(DateTime.now().toObject().hour);
+  const [tempDay , setTempDay] = useState()
   const [forecastOneDay, setForecastOneDay] = useState();
-  const [weatherCode, setWeatherCode] = useState("");
+  // const [weatherCode, setWeatherCode] = useState("");
   const [timeState, setTimeState] = useState(new Date());
-
-  
 
   let openMeteoUrlSevenDays = `https://api.open-meteo.com/v1/forecast?latitude=1.37&longitude=103.80&hourly=temperature_2m&daily=sunrise,sunset&timezone=Asia%2FSingapore`;
   let openMeteoUrlOneDay = `https://api.open-meteo.com/v1/forecast?latitude=1.37&longitude=103.80&hourly=temperature_2m,precipitation,rain,weathercode&daily=weathercode,sunrise,sunset&current_weather=true&timezone=Asia%2FSingapore&start_date=${todate}&end_date=${todate}`;
@@ -79,9 +78,9 @@ function App() {
 
   //============================================
   return (
-    <>
+    <div className=" flex justify-evenly">
       {forecastOneDay ? (
-        <div className="flex m-20">
+        <div className="flex mt-14">
           <BrowserRouter>
             <Routes>
               <Route
@@ -93,23 +92,28 @@ function App() {
                     monthNames={monthNames}
                     today={today}
                     tempHour={tempHour}
+                    timeState={timeState}
+                    setTimeState={setTimeState}
                   />
                 }
               >
                 <Route
                   index
                   element={
-                    <Home
-                      todate={todate}
-                      now={now}
-                      monthNames={monthNames}
-                      today={today}
-                    />
+                    <Home now={now} monthNames={monthNames} today={today} />
                   }
                 />
                 <Route
                   path="/calendar"
-                  element={<Calendar hourNow={hourNow} tempHour={tempHour} setTempHour={setTempHour} setTimeState={setTimeState} timeState={timeState}/>}
+                  element={
+                    <Calendar
+                      hourNow={hourNow}
+                      tempHour={tempHour}
+                      setTempHour={setTempHour}
+                      setTimeState={setTimeState}
+                      timeState={timeState}
+                    />
+                  }
                 />
                 <Route
                   path="/weather"
@@ -131,12 +135,11 @@ function App() {
               </Route>
             </Routes>
           </BrowserRouter>
-          <div></div>
         </div>
       ) : (
         ""
       )}
-    </>
+    </div>
   );
 }
 export default App;

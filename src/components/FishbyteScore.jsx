@@ -4,13 +4,13 @@ import { useState } from "react";
 
 export default function FishbyteScore({
   tempHour,
-  todate,
   now,
   monthNames,
   today,
 }) {
   return (
     <div className="flex-col">
+      <div className="flex justify-center text-2xl m-1 p-2">FORECAST</div>
       <div className="topBar flex justify-between font-Poiret One text-2xl">
         {now.day}
         <br />
