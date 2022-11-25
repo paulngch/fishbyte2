@@ -11,95 +11,104 @@ export default function Weather({
   todate,
 }) {
   //For condition, i.e Clear / Shower/ Overcast
-
-  let openMeteoUrlOneDay = `https://api.open-meteo.com/v1/forecast?latitude=1.37&longitude=103.80&hourly=temperature_2m,precipitation,rain,weathercode&daily=weathercode,sunrise,sunset&current_weather=true&timezone=Asia%2FSingapore&start_date=${todate}&end_date=${todate}`;
-
-  const [loading, setLoading] = useState("");
-  const [error,setError] = useState(false)
-  useEffect(()=>{
-    setLoading("loading");
-    axios
-    .get(openMeteoUrlOneDay)
-    .then((response) => {
-        setLoading("success");
-        setForecastOneDay(response.data)
-      })
-      .catch((err)=>{
-        console.error('Error:',err);
-        setLoading("error");
-        setError(err);
-
-      });
-  },[]);
-
-  if (loading==="error") {
-    return(console.log(error.toString()))
-  }
-  console.log(forecastOneDay?.hourly?.weathercode[0]);
-
-
-
-
-  // useEffect(() => {
-  //   axios
-  //     .get(openMeteoUrlOneDay)
-  //     .then((response) => {
-  //       setForecastOneDay(response.data);
-  //       console.log("test response", response.data);
-  //       console.log("WEATHERCODE", forecastOneDay?.hourly?.weathercode[0]);
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
-  // }, []);
-  // console.log(forecastOneDay);
-
-  const conditionCheck = forecastOneDay?.hourly?.weathercode[0]
-    ? "Condition"
-    : "Error";
-  console.log("CONDITION CHECK", conditionCheck);
-
-  const [condition, setCondition] = useState("");
-  console.log(tempHour);
-
   //Try shifting url and fetches down to individual components =====
   //rethink about changing state and useeffect
-  // useEffect(() => {
-  //   switch (forecastOneDay?.hourly?.weathercode[0]) {
-  //     case 3:
-  //       setCondition("Overcast");
-  //       break;
-  //     case 80:
-  //       setCondition("Slight Showers");
-  //       break;
-  //     case undefined:
-  //       setCondition("error");
-  //       break;
-  //   }
-  // }, []);
+
+  const [condition, setCondition] = useState("");
+  const [temperature,setTemperature]=useState("");
+  useEffect(() => {
+    switch (forecastOneDay.hourly.weathercode[tempHour]) {
+      case 0:
+        setCondition("Clear Sky");
+        break;
+      case 1:
+        setCondition("Mainly Clear");
+        break;
+      case 2:
+        setCondition("Partly Cloudy");
+        break;
+      case 3:
+        setCondition("Overcast");
+        break;
+      case 45:
+        setCondition("Fog");
+        break;
+      case 48:
+        setCondition("Depositing Rime Fog");
+        break;
+      case 51:
+        setCondition("Light Drizzle");
+        break;
+      case 53:
+        setCondition("Moderate Drizzle");
+        break;
+      case 55:
+        setCondition("Dense Drizzle");
+        break;
+      case 56:
+        setCondition("Light, Freezing Drizzle");
+        break;
+      case 57:
+        setCondition("Dense, Freezing Drizzle");
+        break;
+      case 61:
+        setCondition("Slight Rain");
+        break;
+      case 63:
+        setCondition("Moderate Rain");
+        break;
+      case 65:
+        setCondition("Intense Rain");
+        break;
+      case 66:
+        setCondition("Light,Freezing Rain");
+        break;
+      case 67:
+        setCondition("Intense, FreezingRain");
+        break;
+      case 71:
+        setCondition("Slight Snow");
+        break;
+      case 73:
+        setCondition("Moderate Snow");
+        break;
+      case 75:
+        setCondition("Heavy Snow");
+        break;
+      case 77:
+        setCondition("Snow Grains");
+        break;
+      case 80:
+        setCondition("Slight Showers");
+        break;
+      case 81:
+        setCondition("Moderate Showers");
+        break;
+      case 82:
+        setCondition("Violent Showers");
+        break;
+      case 85:
+        setCondition("Slight Snow Showers");
+        break;
+      case 86:
+        setCondition("Heavy Snow Showers");
+        break;
+      case 95:
+        setCondition("Thunderstorm");
+        break;
+      case 96:
+        setCondition("Thunderstorm w/ Slight Hail");
+        break;
+      case 99:
+        setCondition("Thunderstorm w/ Heavy Hail");
+        break;
+      case undefined:
+        setCondition("NOT SINGAPORE's WEATHER");
+        break;
+    }
+  }, []);
 
   console.log("CONDITION", condition);
-  //       case 1:
-  //         day = "Monday";
-  //         break;
-  //       case 2:
-  //         day = "Tuesday";
-  //         break;
-  //       case 3:
-  //         day = "Wednesday";
-  //         break;
-  //       case 4:
-  //         day = "Thursday";
-  //         break;
-  //       case 5:
-  //         day = "Friday";
-  //         break;
-  //       case 6:
-  //         day = "Saturday";
-  //     }
-  // console.log("F1D", forecastOneDay)
-  // console.log("WEATHERCODE", weatherCode)
-  //   console.log(forecastOneDay.hourly?.weathercode[hourNow]);
 
   return (
     <div className="flex flex-col mx-auto p-6">
