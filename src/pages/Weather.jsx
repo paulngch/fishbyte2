@@ -1,13 +1,58 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function Weather({
   forecastOneDay,
   tempHour,
   weatherCode,
   setWeatherCode,
+  setForecastOneDay,
+  todate,
 }) {
   //For condition, i.e Clear / Shower/ Overcast
+
+  let openMeteoUrlOneDay = `https://api.open-meteo.com/v1/forecast?latitude=1.37&longitude=103.80&hourly=temperature_2m,precipitation,rain,weathercode&daily=weathercode,sunrise,sunset&current_weather=true&timezone=Asia%2FSingapore&start_date=${todate}&end_date=${todate}`;
+
+  const [loading, setLoading] = useState("");
+  const [error,setError] = useState(false)
+  useEffect(()=>{
+    setLoading("loading");
+    axios
+    .get(openMeteoUrlOneDay)
+    .then((response) => {
+        setLoading("success");
+        setForecastOneDay(response.data)
+      })
+      .catch((err)=>{
+        console.error('Error:',err);
+        setLoading("error");
+        setError(err);
+
+      });
+  },[]);
+
+  if (loading==="error") {
+    return(console.log(error.toString()))
+  }
+  console.log(forecastOneDay?.hourly?.weathercode[0]);
+
+
+
+
+  // useEffect(() => {
+  //   axios
+  //     .get(openMeteoUrlOneDay)
+  //     .then((response) => {
+  //       setForecastOneDay(response.data);
+  //       console.log("test response", response.data);
+  //       console.log("WEATHERCODE", forecastOneDay?.hourly?.weathercode[0]);
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // }, []);
+  // console.log(forecastOneDay);
 
   const conditionCheck = forecastOneDay?.hourly?.weathercode[0]
     ? "Condition"
@@ -19,19 +64,19 @@ export default function Weather({
 
   //Try shifting url and fetches down to individual components =====
   //rethink about changing state and useeffect
-  useEffect(() => {
-    switch (forecastOneDay?.hourly?.weathercode[0]) {
-      case 3:
-        setCondition("Overcast");
-        break;
-      case 80:
-        setCondition("Slight Showers");
-        break;
-      case undefined:
-        setCondition("error");
-        break;
-    }
-  }, []);
+  // useEffect(() => {
+  //   switch (forecastOneDay?.hourly?.weathercode[0]) {
+  //     case 3:
+  //       setCondition("Overcast");
+  //       break;
+  //     case 80:
+  //       setCondition("Slight Showers");
+  //       break;
+  //     case undefined:
+  //       setCondition("error");
+  //       break;
+  //   }
+  // }, []);
 
   console.log("CONDITION", condition);
   //       case 1:

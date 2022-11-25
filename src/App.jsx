@@ -7,6 +7,7 @@ import { DateTime } from "luxon";
 import SharedLayout from "./pages/SharedLayout";
 import Weather from "./pages/Weather";
 import axios from "axios";
+import Forecasts from './components/Forecasts'
 
 function App() {
   //============================================
@@ -53,18 +54,18 @@ function App() {
 
 
   let openMeteoUrlSevenDays = `ttps://api.open-meteo.com/v1/forecast?latitude=1.37&longitude=103.80&hourly=temperature_2m&daily=sunrise,sunset&timezone=Asia%2FSingapore`;
-  let openMeteoUrlOneDay = `https://api.open-meteo.com/v1/forecast?latitude=1.37&longitude=103.80&hourly=temperature_2m,precipitation,rain,weathercode&daily=weathercode,sunrise,sunset&current_weather=true&timezone=Asia%2FSingapore&start_date=${todate}&end_date=${todate}`;
+  // let openMeteoUrlOneDay = `https://api.open-meteo.com/v1/forecast?latitude=1.37&longitude=103.80&hourly=temperature_2m,precipitation,rain,weathercode&daily=weathercode,sunrise,sunset&current_weather=true&timezone=Asia%2FSingapore&start_date=${todate}&end_date=${todate}`;
 
-  // const 
-  useEffect(() => {
-    axios
-      .get(openMeteoUrlOneDay)
-      .then((response) => setForecastOneDay(response.data))
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, []);
-  console.log(forecastOneDay);
+  
+  // useEffect(() => {
+  //   axios
+  //     .get(openMeteoUrlOneDay)
+  //     .then((response) => setForecastOneDay(response.data))
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // }, []);
+  // console.log(forecastOneDay);
 
   //============================================
   return (
@@ -94,10 +95,12 @@ function App() {
               }
             />
             <Route path="/calendar" element={<Calendar />} />
+            {/* <Route path="/forecasts" element={<Forecasts today={today}/>} /> */}
+
             <Route
               path="/weather"
               element={
-                <Weather forecastOneDay={forecastOneDay} tempHour={tempHour} weatherCode={weatherCode} setWeatherCode={setWeatherCode} />
+                <Weather forecastOneDay={forecastOneDay} tempHour={tempHour} weatherCode={weatherCode} setWeatherCode={setWeatherCode} setForecastOneDay={setForecastOneDay} todate={todate}/>
               }
             />
           </Route>
