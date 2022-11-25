@@ -2,15 +2,20 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 // import { DateTime } from "luxon";
 
-export default function FishbyteScore({ todate, now, monthNames, today }) {
-
-  console.log(now);
+export default function FishbyteScore({
+  tempHour,
+  todate,
+  now,
+  monthNames,
+  today,
+}) {
   return (
     <div className="flex-col">
-      <div className="topBar flex justify-between font-Poiret One">
+      <div className="topBar flex justify-between font-Poiret One text-2xl">
         {now.day}
         <br />
         {monthNames[now.month]}
+        <div>{tempHour}:00h</div>
         <div className="day">{today}</div>
       </div>
       <div className="fishbyteMeter m-4 p-20">METER</div>

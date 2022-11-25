@@ -3,7 +3,7 @@ import RightSideBar from "../components/RightSideBar";
 import FishbyteScore from "../components/FishbyteScore";
 import { DateTime } from "luxon";
 
-export default function SharedLayout({ todate, now, monthNames, today }) {
+export default function SharedLayout({tempHour, todate, now, monthNames, today }) {
   return (
     <>
       <FishbyteScore
@@ -12,6 +12,7 @@ export default function SharedLayout({ todate, now, monthNames, today }) {
         now={now}
         monthNames={monthNames}
         today={today}
+        tempHour={tempHour}
       />
       <Outlet />
       <RightSideBar />
