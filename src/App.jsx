@@ -78,57 +78,59 @@ function App() {
   return (
     <div className=" flex justify-evenly">
       {forecastOneDay ? (
-        <div className="flex mt-14">
-          <BrowserRouter>
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <SharedLayout
-                    // todate={todate}
-                    now={now}
-                    monthNames={monthNames}
-                    today={today}
-                    setToday={setToday}
-                    tempHour={tempHour}
-                    timeState={timeState}
-                    setTimeState={setTimeState}
-                    tempDate={tempDate}
-                    toMonth={toMonth}
-                    setToMonth={setToMonth}
-                  />
-                }
-              >
+        <div className="w-full h-full bg-auto">
+          <img
+            src="../public/fishinglake.jpg"
+            className=" w-full h-full bg-cover absolute mix-blend-overlay"
+          />
+          <div className="flex justify-center left-80 mt-14">
+            <BrowserRouter>
+              <Routes>
                 <Route
-                  index
+                  path="/"
                   element={
-                    <Home now={now} monthNames={monthNames} today={today} />
-                  }
-                />
-                <Route
-                  path="/weather"
-                  element={
-                    <Weather
-                      forecastOneDay={forecastOneDay}
+                    <SharedLayout
+                      today={today}
                       tempHour={tempHour}
-                      setTempHour={setTempHour}
+                      timeState={timeState}
+                      setTimeState={setTimeState}
                       tempDate={tempDate}
-                      setTempDate={setTempDate}
-                      condition={condition}
-                      setCondition={setCondition}
-                      temperature={temperature}
-                      setTemperature={setTemperature}
-                      sunRise={sunRise}
-                      setSunRise={setSunRise}
-                      sunSet={sunSet}
-                      setSunSet={setSunSet}
-                      monthNames={monthNames}
+                      toMonth={toMonth}
+                      setToMonth={setToMonth}
                     />
                   }
-                />
-              </Route>
-            </Routes>
-          </BrowserRouter>
+                >
+                  <Route
+                    index
+                    element={
+                      <Home now={now} monthNames={monthNames} today={today} />
+                    }
+                  />
+                  <Route
+                    path="/weather"
+                    element={
+                      <Weather
+                        forecastOneDay={forecastOneDay}
+                        tempHour={tempHour}
+                        setTempHour={setTempHour}
+                        tempDate={tempDate}
+                        setTempDate={setTempDate}
+                        condition={condition}
+                        setCondition={setCondition}
+                        temperature={temperature}
+                        setTemperature={setTemperature}
+                        sunRise={sunRise}
+                        setSunRise={setSunRise}
+                        sunSet={sunSet}
+                        setSunSet={setSunSet}
+                        monthNames={monthNames}
+                      />
+                    }
+                  />
+                </Route>
+              </Routes>
+            </BrowserRouter>
+          </div>
         </div>
       ) : (
         ""

@@ -6,11 +6,7 @@ import { useState, useEffect } from "react";
 
 export default function SharedLayout({
   tempHour,
-  // todate,
-  now,
-  monthNames,
   today,
-  setToday,
   timeState,
   setTimeState,
   tempDate,
@@ -23,21 +19,17 @@ export default function SharedLayout({
     }, 60000);
   }, []);
   return (
-    <div className="flex">
-      <div className="">
+    <div className="flex mt-20">
+      
         <FishbyteScore
           className="leftNav relative m-2"
-          // todate={todate}
-          // now={now}
-          // monthNames={monthNames}
-          // setToday={setToday}
           today={today}
           tempHour={tempHour}
           tempDate={tempDate}
           toMonth={toMonth}
           setToMonth={setToMonth}
         />
-      </div>
+      
       <div className=" ml-14">
         <div className="flex justify-center mt-2 mb-5">
           <div className="flex text-l my-auto mx-2">present: </div>

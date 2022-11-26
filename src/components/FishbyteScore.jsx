@@ -4,8 +4,6 @@ import { useState, useEffect } from "react";
 
 export default function FishbyteScore({
   tempHour,
-  // now,
-  // monthNames,
   today,
   tempDate,
   toMonth,
