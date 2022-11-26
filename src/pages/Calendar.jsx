@@ -151,7 +151,7 @@ console.log("TEMPHOUR", tempHour)
           <MdChevronLeft onClick={slideDayLeft} size={40} />
           <div
             id="sliderDay"
-            className="w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth"
+            className="w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide"
           >
             {dayButtons}
           </div>
@@ -161,7 +161,7 @@ console.log("TEMPHOUR", tempHour)
           <MdChevronLeft onClick={slideLeft} size={40} />
           <div
             id="slider"
-            className="w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth"
+            className="w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide"
           >
             {hourButtons}
           </div>
