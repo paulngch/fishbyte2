@@ -16,22 +16,20 @@ function App() {
   //toDay=(today's Weekday in string) && used for setToday to display weekday in String
   //now=(object) && hourNow=(0-23) && used as INDEX for querying API.hourly["temperature_2m"][hourNow]
 
-  //   let date = DateTime.utc().toISO();
-  //   console.log(date);
   const monthNames = [
     "",
-    "jan",
-    "feb",
-    "mar",
-    "apr",
-    "may",
-    "june",
-    "july",
-    "aug",
-    "sep",
-    "oct",
-    "nov",
-    "dec",
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "June",
+    "July",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
   ];
 
   const now = DateTime.now().toObject();
@@ -46,18 +44,17 @@ function App() {
     .toLocaleString(DateTime.DATETIME_MED_WITH_WEEKDAY)
     .slice(0, 3);
 
-  console.log(DateTime.now().toObject());
+  // console.log(DateTime.now().toObject());
 
   const [today, setToday] = useState(toDay);
-  const [todate, setTodate] = useState(exactDateNow);
+  // const [todate, setTodate] = useState(exactDateNow);
   const [tempHour, setTempHour] = useState(DateTime.now().toObject().hour);
-  const [tempDay , setTempDay] = useState()
+  const [tempDate, setTempDate] = useState(exactDateNow);
   const [forecastOneDay, setForecastOneDay] = useState();
-  // const [weatherCode, setWeatherCode] = useState("");
   const [timeState, setTimeState] = useState(new Date());
 
-  let openMeteoUrlSevenDays = `https://api.open-meteo.com/v1/forecast?latitude=1.37&longitude=103.80&hourly=temperature_2m&daily=sunrise,sunset&timezone=Asia%2FSingapore`;
-  let openMeteoUrlOneDay = `https://api.open-meteo.com/v1/forecast?latitude=1.37&longitude=103.80&hourly=temperature_2m,precipitation,rain,weathercode&daily=weathercode,sunrise,sunset&current_weather=true&timezone=Asia%2FSingapore&start_date=${todate}&end_date=${todate}`;
+  // let openMeteoUrlSevenDays = `https://api.open-meteo.com/v1/forecast?latitude=1.37&longitude=103.80&hourly=temperature_2m&daily=sunrise,sunset&timezone=Asia%2FSingapore`;
+  let openMeteoUrlOneDay = `https://api.open-meteo.com/v1/forecast?latitude=1.37&longitude=103.80&hourly=temperature_2m,precipitation,rain,weathercode&daily=weathercode,sunrise,sunset&current_weather=true&timezone=Asia%2FSingapore&start_date=${tempDate}&end_date=${tempDate}`;
 
   useEffect(() => {
     async function getData() {
@@ -66,14 +63,11 @@ function App() {
       setForecastOneDay(data);
     }
     getData();
-  }, []);
+  }, [tempDate]);
 
   const [temperature, setTemperature] = useState("");
-  // forecastOneDay[`current_weather`].temperature ;
   const [sunRise, setSunRise] = useState("");
-  // forecastOneDay.daily.sunrise[0].slice(-5);
   const [sunSet, setSunSet] = useState("");
-  // forecastOneDay.daily.sunset[0].slice(-5);
   const [condition, setCondition] = useState("");
 
   //============================================
@@ -87,13 +81,14 @@ function App() {
                 path="/"
                 element={
                   <SharedLayout
-                    todate={todate}
+                    // todate={todate}
                     now={now}
                     monthNames={monthNames}
                     today={today}
                     tempHour={tempHour}
                     timeState={timeState}
                     setTimeState={setTimeState}
+                    tempDate={tempDate}
                   />
                 }
               >
@@ -104,23 +99,14 @@ function App() {
                   }
                 />
                 <Route
-                  path="/calendar"
-                  element={
-                    <Calendar
-                      hourNow={hourNow}
-                      tempHour={tempHour}
-                      setTempHour={setTempHour}
-                      setTimeState={setTimeState}
-                      timeState={timeState}
-                    />
-                  }
-                />
-                <Route
                   path="/weather"
                   element={
                     <Weather
                       forecastOneDay={forecastOneDay}
                       tempHour={tempHour}
+                      setTempHour={setTempHour}
+                      tempDate={tempDate}
+                      setTempDate={setTempDate}
                       condition={condition}
                       setCondition={setCondition}
                       temperature={temperature}
@@ -129,6 +115,7 @@ function App() {
                       setSunRise={setSunRise}
                       sunSet={sunSet}
                       setSunSet={setSunSet}
+                      monthNames={monthNames}
                     />
                   }
                 />

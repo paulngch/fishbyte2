@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Calendar from "./Calendar";
 
 export default function Weather({
   forecastOneDay,
+  tempDate,
+  setTempDate,
   tempHour,
+  setTempHour,
   condition,
   setCondition,
   sunRise,
@@ -13,9 +17,10 @@ export default function Weather({
   setSunSet,
   temperature,
   setTemperature,
+  monthNames
 }) {
   useEffect(() => {
-    setTemperature(forecastOneDay.hourly['temperature_2m'][tempHour]);
+    setTemperature(forecastOneDay.hourly["temperature_2m"][tempHour]);
     setSunRise(forecastOneDay.daily.sunrise[0].slice(-5));
     setSunSet(forecastOneDay.daily.sunset[0].slice(-5));
 
@@ -105,15 +110,24 @@ export default function Weather({
         setCondition("Thunderstorm w/ Heavy Hail");
         break;
       case undefined:
-        setCondition("NOT SINGAPORE's WEATHER");
+        setCondition("Alien Weather");
         break;
     }
-  }, []);
+  }, [forecastOneDay, tempHour]);
 
   // console.log("CONDITION", condition);
 
   return (
     <div className="flex flex-col pl-8 ">
+      <div>
+        <Calendar
+          setTempHour={setTempHour}
+          tempHour={tempHour}
+          tempDate={tempDate}
+          setTempDate={setTempDate}
+          monthNames={monthNames}
+        />
+      </div>
       <div className="mx-auto text-2xl font-extralight flex items-center">
         <div className="flex">Condition:</div>
         <div className="text-4xl">{condition}</div>
