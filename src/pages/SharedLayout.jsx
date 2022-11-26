@@ -10,9 +10,12 @@ export default function SharedLayout({
   now,
   monthNames,
   today,
+  setToday,
   timeState,
   setTimeState,
-  tempDate
+  tempDate,
+  toMonth,
+  setToMonth,
 }) {
   useEffect(() => {
     setInterval(() => {
@@ -25,11 +28,14 @@ export default function SharedLayout({
         <FishbyteScore
           className="leftNav relative m-2"
           // todate={todate}
-          now={now}
-          monthNames={monthNames}
+          // now={now}
+          // monthNames={monthNames}
+          // setToday={setToday}
           today={today}
           tempHour={tempHour}
           tempDate={tempDate}
+          toMonth={toMonth}
+          setToMonth={setToMonth}
         />
       </div>
       <div className=" ml-14">
