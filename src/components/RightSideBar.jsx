@@ -26,7 +26,7 @@ export default function RightSideBar() {
         </NavLink>
       </i>
       <i>
-        <NavLink to="/calendar">
+        <NavLink to="/">
           <SideBarIcon icon={<TbCalendar size="100" />} />
         </NavLink>
       </i>
