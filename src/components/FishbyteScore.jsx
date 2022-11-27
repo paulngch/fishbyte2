@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-// import { DateTime } from "luxon";
+import { DateTime } from "luxon";
 
 export default function FishbyteScore({
   tempHour,
@@ -10,6 +10,8 @@ export default function FishbyteScore({
   setToMonth,
 }) {
   useEffect(() => {
+    console.log("TEMPDATE", tempDate)
+
     switch (tempDate.slice(5, 7)) {
       case "1":
         setToMonth("Jan");
@@ -52,6 +54,12 @@ export default function FishbyteScore({
         break;
     }
   }, [tempDate]);
+
+  const currentWeekday = DateTime.fromISO(tempDate)
+    .toLocaleString(DateTime.DATETIME_MED_WITH_WEEKDAY)
+    .slice(0, 3);
+
+
   return (
     <div className="flex-col">
       <div className="flex justify-center text-2xl m-1 p-2">FORECAST</div>
@@ -60,7 +68,7 @@ export default function FishbyteScore({
         <br />
         {toMonth}
         <div>{tempHour}:00h</div>
-        <div className="day">{today}</div>
+        <div className="day">{currentWeekday}</div>
       </div>
       <div className="fishbyteMeter m-4 p-20">METER</div>
       <div className="leftBottomRow flex justify-between">

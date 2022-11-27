@@ -32,6 +32,7 @@ function App() {
     "Dec",
   ];
   const now = DateTime.now().toObject();
+  console.log("NOW", now)
   const hourNow = now.hour;
 
   // console.log("MONTH NOW", monthNames[now.month]);
@@ -69,6 +70,7 @@ function App() {
     getData();
   }, [tempDate]);
 
+
   const [temperature, setTemperature] = useState("");
   const [sunRise, setSunRise] = useState("");
   const [sunSet, setSunSet] = useState("");
@@ -76,12 +78,12 @@ function App() {
 
   //============================================
   return (
-    <div className=" flex justify-evenly">
+    <div className="flex flex-col">
       {forecastOneDay ? (
-        <div className="w-full h-full bg-auto">
+        <div className="h-screen">
           <img
             src="/fishinglake.jpg"
-            className=" w-full h-full bg-cover absolute mix-blend-overlay"
+            className="bg-cover absolute mix-blend-overlay"
           />
           <div className="flex justify-center left-80 mt-14">
             <BrowserRouter>

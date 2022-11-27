@@ -61,6 +61,7 @@ export default function Calendar({
     const center = document.getElementById(value);
     center.scrollIntoView({
       behavior: "smooth",
+      block: "center",
       inline: "center",
     });
     console.log(value)
@@ -88,6 +89,7 @@ export default function Calendar({
     const center = document.getElementById(value);
     center.scrollIntoView({
       behavior: "smooth",
+      block: "center",
       inline: "center",
     });
     setTempHour(value);

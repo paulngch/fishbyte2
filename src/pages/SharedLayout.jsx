@@ -3,6 +3,7 @@ import RightSideBar from "../components/RightSideBar";
 import FishbyteScore from "../components/FishbyteScore";
 import { DateTime } from "luxon";
 import { useState, useEffect } from "react";
+import HeaderBar from "../components/HeaderBar";
 
 export default function SharedLayout({
   tempHour,
@@ -19,8 +20,9 @@ export default function SharedLayout({
     }, 60000);
   }, []);
   return (
-    <div className="flex mt-20">
-      
+    <div className="flex flex-col mt-20">
+      <HeaderBar />
+      <div className="flex">
         <FishbyteScore
           className="leftNav relative m-2"
           today={today}
@@ -50,6 +52,7 @@ export default function SharedLayout({
         <Outlet />
       </div>
       <RightSideBar />
+      </div>
     </div>
   );
 }
