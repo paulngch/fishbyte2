@@ -80,7 +80,7 @@ function App() {
       {forecastOneDay ? (
         <div className="w-full h-full bg-auto">
           <img
-            src="../public/fishinglake.jpg"
+            src="/fishinglake.jpg"
             className=" w-full h-full bg-cover absolute mix-blend-overlay"
           />
           <div className="flex justify-center left-80 mt-14">
