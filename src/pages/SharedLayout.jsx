@@ -13,6 +13,11 @@ export default function SharedLayout({
   tempDate,
   toMonth,
   setToMonth,
+  sunRise,
+  sunSet,
+  temperature,
+  condition,
+  setForecastOneDay,
 }) {
   useEffect(() => {
     setInterval(() => {
@@ -30,6 +35,12 @@ export default function SharedLayout({
           tempDate={tempDate}
           toMonth={toMonth}
           setToMonth={setToMonth}
+          timeState={timeState}
+          sunRise={sunRise}
+          sunSet={sunSet}
+          temperature={temperature}
+          condition={condition}
+          setForecastOneDay={setForecastOneDay}
         />
       
       <div className=" ml-14">

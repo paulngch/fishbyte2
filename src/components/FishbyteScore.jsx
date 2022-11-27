@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { DateTime } from "luxon";
+import Meter from "./Meter";
 
 export default function FishbyteScore({
   tempHour,
@@ -8,10 +9,14 @@ export default function FishbyteScore({
   tempDate,
   toMonth,
   setToMonth,
+  timeState,
+  sunRise,
+  sunSet,
+  temperature,
+  condition,
+  setForecastOneDay
 }) {
   useEffect(() => {
-    console.log("TEMPDATE", tempDate)
-
     switch (tempDate.slice(5, 7)) {
       case "1":
         setToMonth("Jan");
@@ -59,7 +64,6 @@ export default function FishbyteScore({
     .toLocaleString(DateTime.DATETIME_MED_WITH_WEEKDAY)
     .slice(0, 3);
 
-
   return (
     <div className="flex-col">
       <div className="flex justify-center text-2xl m-1 p-2">FORECAST</div>
@@ -70,7 +74,17 @@ export default function FishbyteScore({
         <div>{tempHour}:00h</div>
         <div className="day">{currentWeekday}</div>
       </div>
-      <div className="fishbyteMeter m-4 p-20">METER</div>
+      <div className="fishbyteMeter m-4 p-20">
+        <Meter
+          timeState={timeState}
+          tempHour={tempHour}
+          sunRise={sunRise}
+          sunSet={sunSet}
+          temperature={temperature}
+          condition={condition}
+          setForecastOneDay={setForecastOneDay}
+        />
+      </div>
       <div className="leftBottomRow flex justify-between">
         <div className="meterText">Fishbyte Meter</div>
         <div className="favButton">

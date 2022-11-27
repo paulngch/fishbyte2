@@ -32,7 +32,7 @@ function App() {
     "Dec",
   ];
   const now = DateTime.now().toObject();
-  console.log("NOW", now)
+  // console.log("NOW", now)
   const hourNow = now.hour;
 
   // console.log("MONTH NOW", monthNames[now.month]);
@@ -56,7 +56,7 @@ function App() {
   let currentMonthFishbyte = tempDate.slice(5, 7);
 
   const [toMonth, setToMonth] = useState(monthNames[currentMonthFishbyte]);
-  console.log("TOMONTH", toMonth);
+  // console.log("TOMONTH", toMonth);
 
   // let openMeteoUrlSevenDays = `https://api.open-meteo.com/v1/forecast?latitude=1.37&longitude=103.80&hourly=temperature_2m&daily=sunrise,sunset&timezone=Asia%2FSingapore`;
   let openMeteoUrlOneDay = `https://api.open-meteo.com/v1/forecast?latitude=1.37&longitude=103.80&hourly=temperature_2m,precipitation,rain,weathercode&daily=weathercode,sunrise,sunset&current_weather=true&timezone=Asia%2FSingapore&start_date=${tempDate}&end_date=${tempDate}`;
@@ -99,6 +99,11 @@ function App() {
                       tempDate={tempDate}
                       toMonth={toMonth}
                       setToMonth={setToMonth}
+                      sunRise={sunRise}
+                      sunSet={sunSet}
+                      temperature={temperature}
+                      condition={condition}
+                      setForecastOneDay={setForecastOneDay}
                     />
                   }
                 >

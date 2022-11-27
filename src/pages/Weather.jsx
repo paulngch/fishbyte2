@@ -113,7 +113,7 @@ export default function Weather({
         setCondition("Alien Weather");
         break;
     }
-  }, [forecastOneDay, tempHour]);
+  }, [forecastOneDay,tempHour]);
 
   // console.log("CONDITION", condition);
 

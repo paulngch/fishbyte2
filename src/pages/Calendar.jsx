@@ -123,8 +123,8 @@ export default function Calendar({
       {ele}:00
     </button>
   ));
-console.log("TEMPDATE", tempDate)
-console.log("TEMPHOUR", tempHour)
+// console.log("TEMPDATE", tempDate)
+// console.log("TEMPHOUR", tempHour)
   // console.log(arrOfHours);
 
   const slideLeft = () => {
