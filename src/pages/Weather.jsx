@@ -19,6 +19,8 @@ export default function Weather({
   setTemperature,
   monthNames
 }) {
+
+  
   useEffect(() => {
     setTemperature(forecastOneDay.hourly["temperature_2m"][tempHour]);
     setSunRise(forecastOneDay.daily.sunrise[0].slice(-5));

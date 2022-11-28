@@ -91,6 +91,6 @@ export default function Meter({
 //     }
 //   }
 
-  return <>{setForecastOneDay ? meterScore : ""}</>;
+  return <div className="text-5xl">{setForecastOneDay ? meterScore : ""}</div>;
   // return {meterScore}
 }

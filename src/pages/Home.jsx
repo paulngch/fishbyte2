@@ -7,12 +7,6 @@ const Home = () => {
     <>
       <div className="pageTabs mx-auto pt-10 relative">
         <div className=" max-w-[300px] text-xl ">{randomQuote}</div>
-        {/* <div>
-          <button>Calender</button>
-        </div>
-        <div>
-          <button>Chart</button>
-        </div> */}
       </div>
     </>
   );

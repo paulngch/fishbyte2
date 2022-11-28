@@ -1,5 +1,5 @@
 const fishingQuotes = [
-  `“Many men go fishing all of their lives without knowing that it is not fish they are after,” - Henry David Thoreau.`,
+  `“Many men go fishing all of their lives without knowing that it is not fish they are after,” Henry David Thoreau.`,
   `“If people concentrated on the really important things in life, there’d be a shortage of fishing poles,” Doug Larson`,
   `“A bad day of fishing is still better than a good day at the office!” Author Unknown`,
   `“A woman, who has never seen her husband fishing, doesn’t know what a patient man she married!” Author Unknown`,
