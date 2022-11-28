@@ -6,7 +6,6 @@ import Calendar from "./pages/Calendar";
 import { DateTime } from "luxon";
 import SharedLayout from "./pages/SharedLayout";
 import Weather from "./pages/Weather";
-import axios from "axios";
 import Forecasts from "./components/Forecasts";
 
 function App() {
@@ -32,22 +31,14 @@ function App() {
     "Dec",
   ];
   const now = DateTime.now().toObject();
-  // console.log("NOW", now)
   const hourNow = now.hour;
-
-  // console.log("MONTH NOW", monthNames[now.month]);
-
-  // console.log(now);
   const exactDateNow = DateTime.now().toFormat("yyyy-MM-dd");
 
   const toDay = DateTime.now()
     .toLocaleString(DateTime.DATETIME_MED_WITH_WEEKDAY)
     .slice(0, 3);
 
-  // console.log(DateTime.now().toObject());
-
   const [today, setToday] = useState(toDay);
-  // const [todate, setTodate] = useState(exactDateNow);
   const [tempHour, setTempHour] = useState(DateTime.now().toObject().hour);
   const [tempDate, setTempDate] = useState(exactDateNow);
   const [forecastOneDay, setForecastOneDay] = useState();
@@ -163,12 +154,6 @@ function App() {
       condition = "Alien Weather";
       break;
   }
-
-  // const [temperature, setTemperature] = useState("");
-  // const [sunRise, setSunRise] = useState("");
-  // const [sunSet, setSunSet] = useState("");
-  // const [condition, setCondition] = useState("");
-
   //============================================
   return (
     <div className="flex flex-col">
@@ -220,14 +205,7 @@ function App() {
                         sunSet={sunSet}
                         temperature={temperature}
                         condition={condition}
-                        // condition={condition}
-                        // setCondition={setCondition}
-                        // temperature={temperature}
-                        // setTemperature={setTemperature}
-                        // sunRise={sunRise}
-                        // setSunRise={setSunRise}
-                        // sunSet={sunSet}
-                        // setSunSet={setSunSet}
+                        ß
                       />
                     }
                   />

@@ -12,9 +12,9 @@ export default function Meter({
 }) {
   // const [meterScore, setMeterScore] = useState(0);
   let meterScore = 0;
-  console.log("CONDITION", condition);
-  console.log("TEMPERATURE", temperature);
-  console.log("MeterScore b4", meterScore);
+  // console.log("CONDITION", condition);
+  // console.log("TEMPERATURE", temperature);
+  // console.log("MeterScore b4", meterScore);
 
   // useEffect(() => {
   let sunRiseInt = parseInt(sunRise.slice(0, 2), 10);
@@ -30,7 +30,7 @@ export default function Meter({
   //sunrise -1h,+3h && sunset -2h = 1point
   //sunrise +2h && sunset +1h = 2points
   //sunrises & sr +1h  && sunset * ss-1 = 3points
-  let sunScore = 0; 
+  let sunScore = 0;
 
   if (
     //1h before sunrise
@@ -82,10 +82,11 @@ export default function Meter({
     conditionScore = 1;
   }
   meterScore = sunScore + temperatureScore + conditionScore;
-  console.log("SUNSCORE", sunScore);
-  console.log("temperatureScore", temperatureScore);
-  console.log("CONDITION SCORE", conditionScore);
-  console.log("MeterScore after", meterScore);
+  // console.log("SUNSCORE", sunScore);
+  // console.log("temperatureScore", temperatureScore);
+  // console.log("CONDITION SCORE", conditionScore);
+  // console.log("MeterScore after", meterScore);
+
   // setMeterScore(sunScore + temperatureScore + conditionScore);
   // }, [tempHour, temperature, condition]);
 

@@ -1,17 +1,16 @@
 import { Link, NavLink } from "react-router-dom";
 import { TbCalendar } from "react-icons/tb";
 import { FaCloudSun } from "react-icons/fa";
-import {AiFillHome} from "react-icons/ai"
+import { AiFillHome } from "react-icons/ai";
 
 export default function RightSideBar() {
-  const SideBarIcon = ({ icon , text='tooltip'}) => {
+  const SideBarIcon = ({ icon, text = "tooltip" }) => {
     return (
-    <div className="sidebar-icon group">
-      {icon}
-      <span className="sidebar-tooltip group-hover:scale-100">
-        {text}
-      </span>
-      </div>);
+      <div className="sidebar-icon group">
+        {icon}
+        <span className="sidebar-tooltip group-hover:scale-100">{text}</span>
+      </div>
+    );
   };
 
   const handleClick = () => {
