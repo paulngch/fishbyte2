@@ -106,10 +106,10 @@ export default function Weather({
         setCondition("Thunderstorm");
         break;
       case 96:
-        setCondition("Thunderstorm w/ Slight Hail");
+        setCondition("Thunderstormß");
         break;
       case 99:
-        setCondition("Thunderstorm w/ Heavy Hail");
+        setCondition("Thunderstorm");
         break;
       case undefined:
         setCondition("Alien Weather");
