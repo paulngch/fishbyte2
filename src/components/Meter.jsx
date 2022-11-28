@@ -20,7 +20,7 @@ export default function Meter({
 
     // console.log(typeof sunRiseInt);
     // console.log("SUNRISE INT", sunRiseInt);
-    // console.log(typeof tempHourInt);
+    // console.log(typeof tempHou rInt);
     // console.log(tempHourInt);
     //=================
     //sunScore Logic = (out of 3 points)

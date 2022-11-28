@@ -106,7 +106,7 @@ export default function Weather({
         setCondition("Thunderstorm");
         break;
       case 96:
-        setCondition("Thunderstormß");
+        setCondition("Thunderstorm");
         break;
       case 99:
         setCondition("Thunderstorm");
