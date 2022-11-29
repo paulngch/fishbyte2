@@ -161,7 +161,7 @@ function App() {
         <div className="h-screen">
           <img
             src="/fishinglake.jpg"
-            className="bg-cover absolute mix-blend-overlay"
+            className=" bg-cover absolute mix-blend-overlay -z-10"
           />
           <div className="flex justify-center left-80 mt-14">
             <BrowserRouter>

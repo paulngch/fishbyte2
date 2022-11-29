@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Calendar from "./Calendar";
+import Toggle from "../components/Toggle";
+import DateDropdown from "../components/DateDropdown";
 
 export default function Weather({
   forecastOneDay,
@@ -17,17 +19,38 @@ export default function Weather({
   sunRise = forecastOneDay.daily.sunrise[0].slice(-5);
   sunSet = forecastOneDay.daily.sunset[0].slice(-5);
   temperature = forecastOneDay.hourly["temperature_2m"][tempHour];
+  const [scrollEnabled, setScrollEnabled] = useState(true);
 
   return (
     <div className="flex flex-col pl-8 ">
       <div>
-        <Calendar
-          setTempHour={setTempHour}
-          tempHour={tempHour}
-          tempDate={tempDate}
-          setTempDate={setTempDate}
-          monthNames={monthNames}
+        <Toggle
+          scrollEnabled={scrollEnabled}
+          setScrollEnabled={setScrollEnabled}
         />
+      </div>
+      <div className="">
+        {!scrollEnabled && (
+          <div className=" py-14 mx-2 px-5 my-1">
+            <DateDropdown
+              tempDate={tempDate}
+              setTempDate={setTempDate}
+              setTempHour={setTempHour}
+              tempHour={tempHour}
+            />
+          </div>
+        )}
+        {scrollEnabled && (
+          <div>
+            <Calendar
+              setTempHour={setTempHour}
+              tempHour={tempHour}
+              tempDate={tempDate}
+              setTempDate={setTempDate}
+              monthNames={monthNames}
+            />
+          </div>
+        )}
       </div>
       <div className="mx-auto text-2xl font-extralight flex items-center">
         <div className="flex">Condition:</div>

@@ -8,7 +8,8 @@ export default function Calendar({
   setTempDate,
   tempHour,
   setTempHour,
-  monthNames
+  monthNames,
+
 }) {
   let arrOfHours = [];
   for (let i = 0; i < 24; i++) {
@@ -64,23 +65,25 @@ export default function Calendar({
       block: "center",
       inline: "center",
     });
-    console.log(value)
+    console.log(value);
     console.log(value.slice(0, 3));
     if (currentMonth === 12 && arrOfDays[6] <= 7 && value.slice(-2) <= 7) {
       setTempDate(
         `${DateTime.now().toObject().year + 1}-01-${value.slice(-2)}`
       );
-    } else if (value.slice(-2, -1)===" ") {
+    } else if (value.slice(-2, -1) === " ") {
       setTempDate(
         `${DateTime.now().toObject().year}-${monthNames.findIndex(
           (element) => element === value.slice(0, 3)
         )}-0${value.slice(-1)}`
       );
-    } else {setTempDate(
-      `${DateTime.now().toObject().year}-${monthNames.findIndex(
-        (element) => element === value.slice(0, 3)
-      )}-${value.slice(-2)}`
-    );}
+    } else {
+      setTempDate(
+        `${DateTime.now().toObject().year}-${monthNames.findIndex(
+          (element) => element === value.slice(0, 3)
+        )}-${value.slice(-2)}`
+      );
+    }
   };
   // console.log(tempDate);
 
@@ -123,8 +126,8 @@ export default function Calendar({
       {ele}:00
     </button>
   ));
-// console.log("TEMPDATE", tempDate)
-// console.log("TEMPHOUR", tempHour)
+  // console.log("TEMPDATE", tempDate)
+  // console.log("TEMPHOUR", tempHour)
   // console.log(arrOfHours);
 
   const slideLeft = () => {
@@ -136,15 +139,15 @@ export default function Calendar({
     const slider = document.getElementById("slider");
     slider.scrollLeft = slider.scrollLeft + 150;
   };
-    const slideDayLeft = () => {
-      const slider = document.getElementById("sliderDay");
-      slider.scrollLeft = slider.scrollLeft - 150;
-    };
+  const slideDayLeft = () => {
+    const slider = document.getElementById("sliderDay");
+    slider.scrollLeft = slider.scrollLeft - 150;
+  };
 
-    const slideDayRight = () => {
-      const slider = document.getElementById("sliderDay");
-      slider.scrollLeft = slider.scrollLeft + 150;
-    };
+  const slideDayRight = () => {
+    const slider = document.getElementById("sliderDay");
+    slider.scrollLeft = slider.scrollLeft + 150;
+  };
 
   return (
     <>
