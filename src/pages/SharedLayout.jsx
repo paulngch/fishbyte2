@@ -25,7 +25,7 @@ export default function SharedLayout({
     }, 60000);
   }, []);
   return (
-    <div className="flex flex-col mt-20">
+    <div className="flex flex-col mt-20 font-serif">
       <HeaderBar />
       <div className="flex">
         <FishbyteScore

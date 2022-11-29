@@ -82,6 +82,31 @@ export default function Meter({
     conditionScore = 1;
   }
   meterScore = sunScore + temperatureScore + conditionScore;
+  let fishbyteScore = 0;
+  switch (meterScore) {
+    case 0:
+      fishbyteScore = "✖";
+      break;
+    case 1:
+      fishbyteScore = 17;
+      break;
+    case 2:
+      fishbyteScore = 33;
+      break;
+    case 3:
+      fishbyteScore = 50;
+      break;
+    case 4:
+      fishbyteScore = 66;
+      break;
+    case 5:
+      fishbyteScore = 83;
+      break;
+    case 6:
+      fishbyteScore = 100;
+      break;
+  }
+
   // console.log("SUNSCORE", sunScore);
   // console.log("temperatureScore", temperatureScore);
   // console.log("CONDITION SCORE", conditionScore);
@@ -90,6 +115,10 @@ export default function Meter({
   // setMeterScore(sunScore + temperatureScore + conditionScore);
   // }, [tempHour, temperature, condition]);
 
-  return <div className="text-5xl">{setForecastOneDay ? meterScore : ""}</div>;
+  return (
+    <div className="flex justify-center text-5xl text-slate-600 font-extrabold">
+      {setForecastOneDay ? fishbyteScore : ""}
+    </div>
+  );
   // return {meterScore}
 }

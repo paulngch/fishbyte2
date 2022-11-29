@@ -11,6 +11,7 @@ module.exports = {
     extend: {
       fontFamily: {
         "Poiret One": ["cursive"],
+        "Paytone One": ["sans-serif"]
       },
     },
   },

@@ -74,7 +74,9 @@ export default function FishbyteScore({
         <div>{tempHour}:00h</div>
         <div className="day">{currentWeekday}</div>
       </div>
+      
       <div className="fishbyteMeter m-4 p-20">
+        <div className=" absolute ml-[-145px] mt-[-120px] w-[350px]" ><img className="" src='/fishlogogreen.png' /></div>
         <Meter
           timeState={timeState}
           tempHour={tempHour}
@@ -85,12 +87,12 @@ export default function FishbyteScore({
           setForecastOneDay={setForecastOneDay}
         />
       </div>
-      <div className="leftBottomRow flex justify-between">
-        <div className="meterText">Fishbyte Meter</div>
-        <div className="favButton">
+      
+        <div className="meterText flex justify-center mt-[-20px] text-2xl font-extrabold text-slate-600">Fishbyte Meter</div>
+        <div className="favButton flex justify-end mt-2 pt-4">
           <button>Favourite</button>
         </div>
-      </div>
+      
     </div>
   );
 }
