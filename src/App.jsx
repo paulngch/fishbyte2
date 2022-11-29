@@ -156,7 +156,7 @@ function App() {
   }
   //============================================
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col mx-auto min-w-[800px]">
       {forecastOneDay ? (
         <div className="h-screen">
           <img

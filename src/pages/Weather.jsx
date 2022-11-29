@@ -22,7 +22,7 @@ export default function Weather({
   const [scrollEnabled, setScrollEnabled] = useState(true);
 
   return (
-    <div className="flex flex-col pl-8 ">
+    <div className="flex flex-col pl-8 pr-[100px] ">
       <div>
         <Toggle
           scrollEnabled={scrollEnabled}
@@ -52,7 +52,7 @@ export default function Weather({
           </div>
         )}
       </div>
-      <div className="mx-auto text-2xl font-extralight flex items-center">
+      <div className="mx-auto text-2xl font-extralight flex items-center h-[100px] max-w-[200px]">
         <div className="flex">Condition:</div>
         <div className="text-4xl">{condition}</div>
       </div>

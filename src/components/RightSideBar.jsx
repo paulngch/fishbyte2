@@ -18,27 +18,27 @@ export default function RightSideBar() {
   };
 
   return (
-    <div className=" h-screen w-16 ml-8 flex flex-col gap-6">
+    <div className="h-screen w-16 ml-8 flex flex-col gap-6 mx-auto">
       <i>
         <NavLink to="/">
           <SideBarIcon text="home" icon={<AiFillHome size="100" />} />
         </NavLink>
       </i>
-      <i>
+      {/* <i>
         <NavLink to="/">
           <SideBarIcon icon={<TbCalendar size="100" />} />
         </NavLink>
-      </i>
+      </i> */}
       <i>
         <NavLink to="/weather">
           <SideBarIcon text="weather" icon={<FaCloudSun size="100" />} />
         </NavLink>
       </i>
-      <i>
+      {/* <i>
         <NavLink>
           <SideBarIcon icon={<TbCalendar size="100" />} />
         </NavLink>
-      </i>
+      </i> */}
     </div>
   );
 }
