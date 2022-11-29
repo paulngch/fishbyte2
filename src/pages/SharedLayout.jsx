@@ -25,11 +25,11 @@ export default function SharedLayout({
     }, 60000);
   }, []);
   return (
-    <div className="flex flex-col mt-20 font-serif">
+    <div className="flex flex-col mt-10 mb-4 font-serif">
       <HeaderBar />
       <div className="flex">
         <FishbyteScore
-          className="leftNav relative m-2"
+          className="flex"
           today={today}
           tempHour={tempHour}
           tempDate={tempDate}

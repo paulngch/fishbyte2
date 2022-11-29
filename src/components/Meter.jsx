@@ -9,6 +9,7 @@ export default function Meter({
   temperature,
   condition,
   setForecastOneDay,
+
 }) {
   // const [meterScore, setMeterScore] = useState(0);
   let meterScore = 0;
@@ -82,31 +83,50 @@ export default function Meter({
     conditionScore = 1;
   }
   meterScore = sunScore + temperatureScore + conditionScore;
-  let fishbyteScore = 0;
-  switch (meterScore) {
-    case 0:
-      fishbyteScore = "✖";
-      break;
-    case 1:
-      fishbyteScore = 17;
-      break;
-    case 2:
-      fishbyteScore = 33;
-      break;
-    case 3:
-      fishbyteScore = 50;
-      break;
-    case 4:
-      fishbyteScore = 66;
-      break;
-    case 5:
-      fishbyteScore = 83;
-      break;
-    case 6:
-      fishbyteScore = 100;
-      break;
+  let meterImg=""
+  if (meterScore === 0) {
+    meterImg = "/zerosixthgreen.png";
+  } else if (meterScore === 1) {
+    meterImg = "/onesixthgreen.png";
+  } else if (meterScore === 2) {
+    meterImg = "/twosixthgreen.png";
+  } else if (meterScore === 3) {
+    meterImg = "/threesixthgreen.png";
+  } else if (meterScore === 4) {
+    meterImg = "/foursixthgreen.png";
+  } else if (meterScore === 5) {
+    meterImg = "/fivesixthgreen.png";
+  } else if (meterScore === 6) {
+    meterImg = "/sixsixthgreen.png";
   }
 
+
+
+  // useEffect(() => {
+  //   switch (meterScore) {
+  //     case 0:
+  //       setFishbyteScore(0);
+  //       break;
+  //     case 1:
+  //       setFishbyteScore(1);
+  //       break;
+  //     case 2:
+  //       setFishbyteScore(2);
+  //       break;
+  //     case 3:
+  //       setFishbyteScore(3);
+  //       break;
+  //     case 4:
+  //       setFishbyteScore(4);
+  //       break;
+  //     case 5:
+  //       setFishbyteScore(5);
+  //       break;
+  //     case 6:
+  //       setFishbyteScore(6);
+  //       break;
+  //   }
+  // },[meterScore]);
   // console.log("SUNSCORE", sunScore);
   // console.log("temperatureScore", temperatureScore);
   // console.log("CONDITION SCORE", conditionScore);
@@ -117,7 +137,7 @@ export default function Meter({
 
   return (
     <div className="flex justify-center text-5xl text-slate-600 font-extrabold">
-      {setForecastOneDay ? fishbyteScore : ""}
+      {setForecastOneDay ? <img className=" relative scale-50 max-w-[400px]" src={meterImg} /> : ""}
     </div>
   );
   // return {meterScore}

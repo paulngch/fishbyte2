@@ -14,11 +14,11 @@ export default function DateDropdown({setTempDate,setTempHour, tempDate,tempHour
   };
 
   return (
-    <>
+    <div>
       <input
         type="date"
         id="start"
-        name="trip-start"
+        className=" bg-gray-300 text-black"
         // defaultValue={DateTime.now().toISODate()}
         defaultValue = {tempDate}
         min={DateTime.now().toFormat("yyyy-MM-dd")}
@@ -27,7 +27,7 @@ export default function DateDropdown({setTempDate,setTempHour, tempDate,tempHour
       />
       {/* <label for="from">From: </label> */}
       <select
-        name="from"
+        className="bg-gray-300 text-black"
         id="from"
         defaultValue={tempHour}
         onChange={(e) => changeHandlerTime(e.target.value)}
@@ -57,6 +57,6 @@ export default function DateDropdown({setTempDate,setTempHour, tempDate,tempHour
         <option value="22">22:00</option>
         <option value="23">23:00</option>
       </select>
-    </>
+    </div>
   );
 }

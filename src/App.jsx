@@ -156,12 +156,12 @@ function App() {
   }
   //============================================
   return (
-    <div className="flex flex-col mx-auto min-w-[800px]">
+    <div className="flex flex-col text-green-900">
       {forecastOneDay ? (
-        <div className="h-screen">
+        <div className="max-h-screen min-w-screen overflow-hidden">
           <img
             src="/fishinglake.jpg"
-            className=" bg-cover absolute mix-blend-overlay -z-10"
+            className="absolute min-h-screen min-w-screen mix-blend-overlay -z-10"
           />
           <div className="flex justify-center left-80 mt-14">
             <BrowserRouter>
