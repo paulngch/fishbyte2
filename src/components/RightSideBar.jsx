@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { TbCalendar } from "react-icons/tb";
 import { FaCloudSun } from "react-icons/fa";
 import { AiFillHome } from "react-icons/ai";
+import { BsFillBookmarkHeartFill } from "react-icons/bs";
 
 export default function RightSideBar() {
   const SideBarIcon = ({ icon, text = "tooltip" }) => {
@@ -18,7 +19,10 @@ export default function RightSideBar() {
   };
 
   return (
-    <div className="h-screen w-16 ml-8 flex flex-col gap-6 mx-auto">
+    <div
+      className="h-screen w-16 ml-8 flex flex-col gap-6 mx-auto
+    "
+    >
       <i>
         <NavLink to="/">
           <SideBarIcon text="home" icon={<AiFillHome size="100" />} />
@@ -34,11 +38,11 @@ export default function RightSideBar() {
           <SideBarIcon text="weather" icon={<FaCloudSun size="100" />} />
         </NavLink>
       </i>
-      {/* <i>
-        <NavLink>
-          <SideBarIcon icon={<TbCalendar size="100" />} />
+      <i>
+        <NavLink to="/fav">
+          <SideBarIcon icon={<BsFillBookmarkHeartFill size="35" />} />
         </NavLink>
-      </i> */}
+      </i>
     </div>
   );
 }

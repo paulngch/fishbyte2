@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { DateTime } from "luxon";
 import Meter from "./Meter";
+import { RiHeartFill } from "react-icons/ri";
+import { RiHeartLine } from "react-icons/ri";
 
 export default function FishbyteScore({
   tempHour,
@@ -15,8 +17,11 @@ export default function FishbyteScore({
   temperature,
   condition,
   setForecastOneDay,
+  setFavArray,
+  favArray
 }) {
-  const [fishbyteScore, setFishbyteScore] = useState([]);
+  // const [fishbyteScore, setFishbyteScore] = useState([]);
+  const [meterScore, setMeterScore] = useState(0);
 
   useEffect(() => {
     switch (tempDate.slice(5, 7)) {
@@ -68,6 +73,26 @@ export default function FishbyteScore({
 
   // console.log(fishbyteScore);
 
+
+  const favClickHandler = () => {
+    console.log("CLICKED FAV");
+    console.log("TempHour", tempHour);
+    console.log("TempDate", tempDate);
+    console.log("MeterScore", meterScore);
+    // console.log(favArray);
+    setFavArray([...favArray, { hour: tempHour, date: tempDate, score: meterScore }])
+  
+  };
+
+  const FavIcon = ({ icon, text = "tooltip" }) => {
+    return (
+      <div className="sidebar-icon group">
+        {icon}
+        <span className="sidebar-tooltip group-hover:scale-100">{text}</span>
+      </div>
+    );
+  };
+
   return (
     <div className="flex-col">
       <div className="flex justify-center text-2xl m-1 p-2">FORECAST</div>
@@ -90,6 +115,8 @@ export default function FishbyteScore({
           temperature={temperature}
           condition={condition}
           setForecastOneDay={setForecastOneDay}
+          meterScore={meterScore}
+          setMeterScore={setMeterScore}
         />
       </div>
 
@@ -97,7 +124,10 @@ export default function FishbyteScore({
         Fishbyte Meter
       </div>
       <div className="favButton flex justify-end mt-2 pt-4">
-        <button>Favourite</button>
+        <FavIcon
+          text="Favourite"
+          icon={<RiHeartLine onClick={favClickHandler} size="35" />}
+        />
       </div>
     </div>
   );

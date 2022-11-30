@@ -18,12 +18,15 @@ export default function SharedLayout({
   temperature,
   condition,
   setForecastOneDay,
+  favArray,
+  setFavArray,
 }) {
   useEffect(() => {
     setInterval(() => {
       setTimeState(new Date());
     }, 60000);
   }, []);
+  
   return (
     <div className="flex flex-col mt-10 mb-4 font-serif">
       <HeaderBar />
@@ -41,6 +44,8 @@ export default function SharedLayout({
           temperature={temperature}
           condition={condition}
           setForecastOneDay={setForecastOneDay}
+          favArray={favArray}
+          setFavArray={setFavArray}
         />
       
       <div className=" ml-14">

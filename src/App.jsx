@@ -6,7 +6,7 @@ import Calendar from "./pages/Calendar";
 import { DateTime } from "luxon";
 import SharedLayout from "./pages/SharedLayout";
 import Weather from "./pages/Weather";
-import Forecasts from "./components/Forecasts";
+import Fav from "./pages/Fav";
 
 function App() {
   //============================================
@@ -43,6 +43,7 @@ function App() {
   const [tempDate, setTempDate] = useState(exactDateNow);
   const [forecastOneDay, setForecastOneDay] = useState();
   const [timeState, setTimeState] = useState(new Date());
+  const [favArray, setFavArray] = useState([]);
 
   let currentMonthFishbyte = tempDate.slice(5, 7);
 
@@ -182,6 +183,8 @@ function App() {
                       temperature={temperature}
                       condition={condition}
                       setForecastOneDay={setForecastOneDay}
+                      favArray={favArray}
+                      setFavArray={setFavArray}
                     />
                   }
                 >
@@ -205,10 +208,11 @@ function App() {
                         sunSet={sunSet}
                         temperature={temperature}
                         condition={condition}
-                        ß
+                      
                       />
                     }
                   />
+                  <Route path="/fav" element={<Fav favArray={favArray}/>} />
                 </Route>
               </Routes>
             </BrowserRouter>

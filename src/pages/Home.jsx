@@ -8,7 +8,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="pageTabs mx-auto pt-10 pr-10 relative">
+      <div className="pageTabs mx-auto pt-10 pr-10 relative w-[432px]">
         <div className=" max-w-[300px] text-xl">{randomQuote}</div>
       </div>
     </>
