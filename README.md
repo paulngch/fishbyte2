@@ -1,10 +1,10 @@
 Fishing-Buddy
 
 Description
+
 An app that's meant to give the user the information he/she needs with minimal interaction, in order to decide when would be the best times to fish. For freshwater applications only (does not take into account the rising/falling tides)
 
 Technical Used
-For this project, I used the following technologies:
 
 - React
 - TailwindCSS
@@ -19,4 +19,5 @@ Unsolved problems
 As it stands, the website is not optimised for mobile devices with smaller screens.
 
 APIs Used
+
 Open-meteo
