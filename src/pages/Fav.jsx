@@ -1,15 +1,25 @@
-export default function Fav({ favArray }) {
+export default function Fav({ favArray, setFavArray }) {
   console.log(favArray);
   let favList = favArray.map((ele, index) => (
-    <tr key={`${ele.date}T${ele.hour}`}>
+    // <tr key={`${ele.date}T${ele.hour}`}>
+    <tr key={index}>
       <td>{ele.date}</td>
       <td>{ele.hour}</td>
       <td>{ele.score}</td>
       <td>
-        <button value={`${ele.date}T${ele.hour}`}>x</button>
+        <button
+          onClick={(e) => handleDelete(index, e)}
+          value={`${ele.date}T${ele.hour}`}
+        >
+          x
+        </button>
       </td>
     </tr>
   ));
+
+  const handleDelete = ( index, e ) => {
+    setFavArray(favArray.filter((ele, i )=> i !== index))
+ }
 
   return (
     <div>
@@ -29,7 +39,7 @@ export default function Fav({ favArray }) {
               (max 6)
             </th>
             <th className="w-1/6">
-              Select
+              Remove
             </th>
           </tr>
         </thead>

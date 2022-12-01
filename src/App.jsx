@@ -212,7 +212,7 @@ function App() {
                       />
                     }
                   />
-                  <Route path="/fav" element={<Fav favArray={favArray}/>} />
+                  <Route path="/fav" element={<Fav favArray={favArray} setFavArray={setFavArray}/>} />
                 </Route>
               </Routes>
             </BrowserRouter>
