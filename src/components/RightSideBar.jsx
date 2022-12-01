@@ -14,10 +14,6 @@ export default function RightSideBar() {
     );
   };
 
-  const handleClick = () => {
-    // console.log("click");
-  };
-
   return (
     <div
       className="h-screen w-16 ml-8 flex flex-col gap-6 mx-auto
@@ -28,11 +24,6 @@ export default function RightSideBar() {
           <SideBarIcon text="home" icon={<AiFillHome size="100" />} />
         </NavLink>
       </i>
-      {/* <i>
-        <NavLink to="/">
-          <SideBarIcon icon={<TbCalendar size="100" />} />
-        </NavLink>
-      </i> */}
       <i>
         <NavLink to="/weather">
           <SideBarIcon text="weather" icon={<FaCloudSun size="100" />} />
@@ -40,7 +31,10 @@ export default function RightSideBar() {
       </i>
       <i>
         <NavLink to="/fav">
-          <SideBarIcon icon={<BsFillBookmarkHeartFill size="35" />} />
+          <SideBarIcon
+            text="favourite"
+            icon={<BsFillBookmarkHeartFill size="35" />}
+          />
         </NavLink>
       </i>
     </div>

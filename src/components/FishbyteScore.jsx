@@ -18,9 +18,8 @@ export default function FishbyteScore({
   condition,
   setForecastOneDay,
   setFavArray,
-  favArray
+  favArray,
 }) {
-  // const [fishbyteScore, setFishbyteScore] = useState([]);
   const [meterScore, setMeterScore] = useState(0);
 
   useEffect(() => {
@@ -71,17 +70,11 @@ export default function FishbyteScore({
     .toLocaleString(DateTime.DATETIME_MED_WITH_WEEKDAY)
     .slice(0, 3);
 
-  // console.log(fishbyteScore);
-
-
   const favClickHandler = () => {
-    console.log("CLICKED FAV");
-    console.log("TempHour", tempHour);
-    console.log("TempDate", tempDate);
-    console.log("MeterScore", meterScore);
-    // console.log(favArray);
-    setFavArray([...favArray, { hour: tempHour, date: tempDate, score: meterScore }])
-  
+    setFavArray([
+      ...favArray,
+      { id:`${tempDate}T${tempHour}`, hour: tempHour, date: tempDate, score: meterScore },
+    ]);
   };
 
   const FavIcon = ({ icon, text = "tooltip" }) => {

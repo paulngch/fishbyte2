@@ -4,7 +4,7 @@ export default function Toggle({scrollEnabled,setScrollEnabled}) {
 
 
   return (
-    // <div className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden">
+
     <div className="flex justify-center">
       <span className="mr-2 text-sm font-medium text-gray-900">
         picker
@@ -27,6 +27,6 @@ export default function Toggle({scrollEnabled,setScrollEnabled}) {
         </span>
       </label>
     </div>
-    // </div>
+
   );
 }

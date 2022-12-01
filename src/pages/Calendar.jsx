@@ -53,7 +53,7 @@ export default function Calendar({
       );
     }
   }
-  // console.log(arrOfDays);
+
 
   //==========================
   //Logic for scrolling=======
@@ -85,10 +85,10 @@ export default function Calendar({
       );
     }
   };
-  // console.log(tempDate);
+
 
   const centerScrollHour = (value) => {
-    // document.getElementsByClassName(`.timeButtons`).style.fontSize= '20px';
+
     const center = document.getElementById(value);
     center.scrollIntoView({
       behavior: "smooth",
@@ -97,7 +97,7 @@ export default function Calendar({
     });
     setTempHour(value);
   };
-  // console.log(tempHour);
+
 
   let dayButtons = arrOfDays.map((ele, index) => (
     <button
@@ -126,9 +126,7 @@ export default function Calendar({
       {ele}:00
     </button>
   ));
-  // console.log("TEMPDATE", tempDate)
-  // console.log("TEMPHOUR", tempHour)
-  // console.log(arrOfHours);
+
 
   const slideLeft = () => {
     const slider = document.getElementById("slider");

@@ -1,16 +1,19 @@
 import { useState } from "react";
 import { DateTime } from "luxon";
 
-export default function DateDropdown({setTempDate,setTempHour, tempDate,tempHour}) {
+export default function DateDropdown({
+  setTempDate,
+  setTempHour,
+  tempDate,
+  tempHour,
+}) {
   const [pickedDate, setPickedDate] = useState("");
 
   const changeHandlerDate = (value) => {
     setTempDate(value);
   };
   const changeHandlerTime = (value) => {
-    // console.log(value);
-    // console.log(DateTime.now().hour);
-    setTempHour(value)
+    setTempHour(value);
   };
 
   return (
@@ -19,13 +22,12 @@ export default function DateDropdown({setTempDate,setTempHour, tempDate,tempHour
         type="date"
         id="start"
         className=" bg-gray-300 text-black"
-        // defaultValue={DateTime.now().toISODate()}
-        defaultValue = {tempDate}
+        defaultValue={tempDate}
         min={DateTime.now().toFormat("yyyy-MM-dd")}
         max={DateTime.now().plus({ days: 6 }).toISODate()}
         onChange={(e) => changeHandlerDate(e.target.value)}
       />
-      {/* <label for="from">From: </label> */}
+
       <select
         className="bg-gray-300 text-black"
         id="from"

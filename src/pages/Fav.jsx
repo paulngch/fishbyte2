@@ -1,7 +1,10 @@
 export default function Fav({ favArray, setFavArray }) {
-  console.log(favArray);
-  let favList = favArray.map((ele, index) => (
-    // <tr key={`${ele.date}T${ele.hour}`}>
+    const ids = favArray.map((o) => o.id);
+    const filtered = favArray.filter(
+      ({ id }, index) => !ids.includes(id, index + 1)
+    );
+
+  let favList = filtered.map((ele, index) => (
     <tr key={index}>
       <td>{ele.date}</td>
       <td>{ele.hour}</td>
@@ -18,7 +21,7 @@ export default function Fav({ favArray, setFavArray }) {
   ));
 
   const handleDelete = ( index, e ) => {
-    setFavArray(favArray.filter((ele, i )=> i !== index))
+    setFavArray(filtered.filter((ele, i )=> i !== index))
  }
 
   return (
